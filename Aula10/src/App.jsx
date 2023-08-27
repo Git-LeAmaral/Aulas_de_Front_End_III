@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Grocery } from './components/Grocery';
 import styles from './app.module.css'
 
 function App() {
@@ -11,6 +12,16 @@ function App() {
 
     const newGrocery = {name: groceryName, amount: groceryAmount, isBought: false};
     setGroceryList((state) => [...state, newGrocery]);
+  }
+
+  const toggleGroceryBoughtStatus = (groceryToBeToggle) => {
+    const listWithToggleStatus = groceryList.map(grocery => {
+        if (groceryToBeToggle === grocery) {
+          grocery.isBought = !grocery.isBought
+        }
+        return grocery
+    });
+    setGroceryList(listWithToggleStatus);
   }
 
   return (
