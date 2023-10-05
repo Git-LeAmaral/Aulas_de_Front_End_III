@@ -22,3 +22,4 @@ const OdontoContextProvider = ({children}) => {
   )
 }
 
+export default OdontoContextProvider;
