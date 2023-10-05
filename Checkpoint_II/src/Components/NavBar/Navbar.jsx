@@ -1,20 +1,27 @@
-import styles from "./Navbar.module.css";
+import styles from './Navbar.module.css'
+import { OdontoContext } from '../../contexts/OdontoContext'
+import { useContext } from 'react'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
+  // eslint-disable-next-line no-unused-vars
+  const { darkMode, changeTheme } = useContext(OdontoContext)
 
   return (
     <header className="sticky-top">
       {/* //Na linha seguinte deverá ser feito um teste se a aplicação
         // está em dark mode e deverá utilizar navbar-dark bg-dark ou navbar-light bg-light*/}
       <nav
-        className={`navbar navbar-expand-sm navbar-light bg-light`}
+        className={`navbar navbar-expand-sm ${
+          darkMode ? `navbar-light bg-light` : `navbar-dark bg-dark`
+        }`}
         aria-label="Third navbar example"
       >
         <div className="container">
           {/* Ao clicar, o usuário deve ser redirecionado a home, com react-router */}
-          <a className={`navbar-brand ${styles.navbarBrand}`} href="/home">
+          <Link className={`navbar-brand ${styles.navbarBrand}`} to="/">
             DH Odonto
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -54,11 +61,8 @@ const Navbar = () => {
                  Lembre-se de usar um estado no contexto para fazer essa alteração.
                  Na linha seguinte deverá ser feito um teste se a aplicação
                  está em dark mode e deverá utilizar o icone ☀ ou 🌙 e btn-dark ou btn-light*/}
-                <button
-                  className={`btn btn-light${styles.btnStyle
-                    }`}
-                >
-                  ☀ 🌙{" "}
+                <button className={`btn btn-light${styles.btnStyle}`}>
+                  ☀ 🌙{' '}
                 </button>
               </li>
             </ul>
@@ -66,7 +70,7 @@ const Navbar = () => {
         </div>
       </nav>
     </header>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
