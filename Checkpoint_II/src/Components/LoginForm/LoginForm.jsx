@@ -1,6 +1,10 @@
+
 import styles from "./Form.module.css";
 
-const LoginForm = () => {
+
+export const LoginForm = () => {
+
+
   const handleSubmit = (e) => {
     //Nesse handlesubmit você deverá usar o preventDefault,
     //enviar os dados do formulário e enviá-los no corpo da requisição 
@@ -9,6 +13,8 @@ const LoginForm = () => {
     //no localstorage para ser usado em chamadas futuras
     //Com tudo ocorrendo corretamente, o usuário deve ser redirecionado a página principal,com react-router
     //Lembre-se de usar um alerta para dizer se foi bem sucedido ou ocorreu um erro
+    e.preventDefault();
+  
   };
 
   return (

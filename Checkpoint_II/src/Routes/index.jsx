@@ -3,8 +3,8 @@ import OdontoContextProvider from '../contexts/OdontoContext'
 import Home from "../pages/Home/Home";
 import Contact from "../pages/Login/Login";
 import Detail from "../pages/Detail/Detail";
-
 import { DefaultLayout } from "../Layouts/DefaultLayout";
+import { OtherLayout } from "../Layouts/OtherLayout";
 
 export function RouteList() {
   return (
@@ -15,8 +15,12 @@ export function RouteList() {
 
             <Route path="/" element={<DefaultLayout/>}>
               <Route path="/" element={<Home />} />
+            </Route>
+
+            <Route path="/" element={<OtherLayout />}>
               <Route path="/login" element={<Contact />} />
               <Route path="/dentist/:id" element={<Detail />} />
+
             </Route>
             
             </Routes>
